@@ -6,11 +6,11 @@ This project is a minimal cloud drive application inspired from Google Drive. It
 
 ## Technology Enablers
 
-1. Build Tool: Gradle
+1. Build Tool: Gradle  
 Gradle (a Google open-source project) is a build tool that is extremely useful to handle all dependencies implementation on our behalf. It is supported by many IDEs including IntelliJ IDEA which is the IDE I used in this project.
 
-2. Language-Agnostic Technology: XML/SOAP
-XML (Extensible Markup Language) is a metalanguage (general purpose language) that allows the designer of the XML file to create their own tags and define their own schema (e.g., tags hierarchy, types of attributes, values of tags...). XML leverages HTTP to handle web services, and it only uses one HTTP verb which is POST.
+2. Language-Agnostic Technology: XML/SOAP  
+XML (Extensible Markup Language) is a metalanguage (general purpose language) that allows the designer of the XML file to create their own tags and define their own schema (e.g., tags hierarchy, types of attributes, values of tags...). XML leverages HTTP to handle web services, and it only uses one HTTP verb which is POST.  
 For two different systems to communicate and exchange data in a language-independent way, they need to agree upon a contract which is the API. In an XML-based application, the language used to generate the API is XML. There are many XML-based interface definition languages, one of which is WSDL (Web Services Definition Language) which is the language used for XML/SOAP. SOAP (Simple Object Access Protocol) is the protocol that dictates the body part of the POST request.
 
 3. Java Support for XML/SOAP: JAXWS
@@ -33,15 +33,15 @@ Under the same package is the Provider main class which instantiates the cloud d
 After building the Java service provider using Gradle build command: ./gradlew build, I generated the WSDL file using the command line tool wsgen by running the following command:
 `wsgen -wsdl -cp build/classes/java/main/ -d build/classes/java/main/ - r src/main/resources/ cloud.provider.Backup`. In the generated WSDL file, I changed the value of soap:address location tag to http://localhost:9000/backup.
 
-3. Develop the Python service consumer
-The Python service consumer uses the Python module Zeep which takes the path to the wsdl file and generates the corresponding client stub.
-The client code starts by issuing a `create backup folder` request to the server by calling the method `create_backup_folder`. The client then sends all the local files to be stored in the cloud folder by repeatedly calling the upload method.
+3. Develop the Python service consumer  
+The Python service consumer uses the Python module Zeep which takes the path to the wsdl file and generates the corresponding client stub.  
+The client code starts by issuing a `create backup folder` request to the server by calling the method `create_backup_folder`. The client then sends all the local files to be stored in the cloud folder by repeatedly calling the upload method.  
 As long as the connection is held between the server and the client, this latter keeps checking for any changes that might occur to the files contained in the local folder. If any file was added or modified, it is automatically sent to the server using the upload method; if any file was deleted, the user is asked to confirm or deny the deletion from the backup folder.
 
-4. Run the Java provider
+4. Run the Java provider  
 The Java provider can be ran using the Gradle command `./gradlew run`.
 
-5. Run the Python service consumer
-Before running the Python code, the folder to be backed up in the cloud should be placed under the same directory as the Python code. Then the Python code can be ran using the command:
+5. Run the Python service consumer  
+Before running the Python code, the folder to be backed up in the cloud should be placed under the same directory as the Python code. Then the Python code can be ran using the command:  
 `python3 src/main/python/consumer.py path_to_local_folder`
 
