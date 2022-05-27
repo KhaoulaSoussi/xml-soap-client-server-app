@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://provider.cloud/" xmlns:tns="http://provider.cloud/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="create_backup_folder" type="tns:create_backup_folder"/>
+
+  <xs:element name="create_backup_folderResponse" type="tns:create_backup_folderResponse"/>
+
+  <xs:element name="delete_file" type="tns:delete_file"/>
+
+  <xs:element name="delete_fileResponse" type="tns:delete_fileResponse"/>
+
+  <xs:element name="upload_file" type="tns:upload_file"/>
+
+  <xs:element name="upload_fileResponse" type="tns:upload_fileResponse"/>
+
+  <xs:complexType name="create_backup_folder">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="create_backup_folderResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="delete_file">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="delete_fileResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="upload_file">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:int"/>
+      <xs:element name="arg2" type="xs:base64Binary" nillable="true" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="upload_fileResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

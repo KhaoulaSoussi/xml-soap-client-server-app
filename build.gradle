@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'cloud.provider'
+version '1.0-SNAPSHOT'
+compileJava {
+    sourceCompatibility = '1.8'
+    targetCompatibility = '1.8'
+}
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.google.guava:guava:31.1-jre'
+    implementation 'javax.xml.ws:jaxws-api:2.3.1'
+    implementation 'javax.jws:javax.jws-api:1.1'
+    implementation 'com.sun.xml.ws:jaxws-rt:2.3.5'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClassName = 'cloud.provider.Provider'
+}
