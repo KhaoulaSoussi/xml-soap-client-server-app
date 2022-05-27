@@ -7,14 +7,14 @@ This project is a minimal cloud drive application inspired from Google Drive. It
 ## Technology Enablers
 
 1. Build Tool: Gradle  
-Gradle (a Google open-source project) is a build tool that is extremely useful to handle all dependencies implementation on our behalf. It is supported by many IDEs including IntelliJ IDEA which is the IDE I used in this project.
+Gradle (a Google open-source project) is a build tool that is extremely useful to handle all dependencies implementation on our behalf.
 
 2. Language-Agnostic Technology: XML/SOAP  
 XML (Extensible Markup Language) is a metalanguage (general purpose language) that allows the designer of the XML file to create their own tags and define their own schema (e.g., tags hierarchy, types of attributes, values of tags...). XML leverages HTTP to handle web services, and it only uses one HTTP verb which is POST.  
 For two different systems to communicate and exchange data in a language-independent way, they need to agree upon a contract which is the API. In an XML-based application, the language used to generate the API is XML. There are many XML-based interface definition languages, one of which is WSDL (Web Services Definition Language) which is the language used for XML/SOAP. SOAP (Simple Object Access Protocol) is the protocol that dictates the body part of the POST request.
 
 3. Java Support for XML/SOAP: JAXWS   
-JAXWS is the Java API for XML/SOAP. It provides tools useful for developing web services such as wsgen which is used to generate all the artifacts required for the web service. Wsgen generates the WSDL file, the client stub, and the server skeleton in Java. JAXWS also provides the Endpoint java class which provides the static method publish which is used to publish the business logic annotated with the @webservice annotation under a specified URL. The WSDL file describes the interface and also specifies the location of the service provider which is the URL.
+JAXWS is the Java API for XML/SOAP. It provides tools useful for developing web services such as wsgen which is used to generate all the artifacts required for the web service. Wsgen generates the WSDL file, the client stub, and the server skeleton in Java. JAXWS also provides the Endpoint java class which provides the static method publish which is used to publish the business logic annotated with the `@webservice annotation under a specified URL. The WSDL file describes the interface and also specifies the location of the service provider which is the URL.
 
 4. Python SOAP Client: Zeep   
 Zeep is a Python API for XML/SOAP. It inspects the WSDL file containing the service
